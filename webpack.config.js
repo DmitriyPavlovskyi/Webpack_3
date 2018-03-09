@@ -17,7 +17,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["env"]
+            // If there stage-0 options in presets it means it's going to use all features from tc-39 from stage 0 to stage 3
+            presets: ["env", "react"]
           }
         }
       }
