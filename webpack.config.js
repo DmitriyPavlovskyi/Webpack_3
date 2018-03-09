@@ -7,5 +7,20 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "dist")
+  },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /(node_modules)/,
+        // Specify which loader to use
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["env"]
+          }
+        }
+      }
+    ]
   }
 }
