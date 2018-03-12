@@ -1,12 +1,13 @@
 const path = require("path");
 const webpack = require("webpack");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // looking for main JS file in source
   // Multiple entries to create separated bundles
   entry: {
-    about: "./src/about.js",
-    contact: "./src/contact.js"
+    vendor: ["react", "react-dom"],
+    app: "./src/index.js"
   },
   // Specifying output file name and where to put it. Requires path import
   output: {
@@ -56,8 +57,9 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: "commons",
-      filename: "commons.bundle.js"
-    })
+      name: "vendor",
+      filename: "vendor.bundle.js"
+    }),
+    new HTMLWebpackPlugin()
   ]
 }
