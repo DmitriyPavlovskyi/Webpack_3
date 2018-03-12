@@ -1,14 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   // looking for main JS file in source
-  // Multiple entries to create separated bundles
-  entry: {
-    vendor: ["react", "react-dom"],
-    app: "./src/index.js"
-  },
+  entry: "./src/index.js",
   // Specifying output file name and where to put it. Requires path import
   output: {
     filename: "[name].bundle.js",
@@ -56,10 +52,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      filename: "vendor.bundle.js"
-    }),
-    new HTMLWebpackPlugin()
+    new UglifyJsPlugin()
   ]
 }
