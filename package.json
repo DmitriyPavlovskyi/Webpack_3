@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack && serve",
+    "dev": "webpack-dev-server",
     "watch": "webpack --w"
   },
   "author": "Dmitriy Pavlovskyi",
@@ -20,10 +21,12 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "webpack-cli": "^2.0.11"
   }
 }
