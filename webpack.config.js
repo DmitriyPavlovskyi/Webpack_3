@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   // looking for main JS file in source
@@ -52,5 +53,11 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "commons",
+      filename: "commons.bundle.js"
+    })
+  ]
 }
