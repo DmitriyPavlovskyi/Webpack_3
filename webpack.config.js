@@ -2,10 +2,14 @@ const path = require("path");
 
 module.exports = {
   // looking for main JS file in source
-  entry: "./src/index.js",
+  // Multiple entries to create separated bundles
+  entry: {
+    about: "./src/about.js",
+    contact: "./src/contact.js"
+  },
   // Specifying output file name and where to put it. Requires path import
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.join(__dirname, "dist")
   },
   devServer: {
